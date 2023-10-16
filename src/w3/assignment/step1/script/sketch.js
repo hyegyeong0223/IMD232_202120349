@@ -34,6 +34,7 @@ function draw() {
   mouse.sub(position);
 
   push();
+  o;
   stroke(0);
   translate(mouseX, mouseY);
   pop();
