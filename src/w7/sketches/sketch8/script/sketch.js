@@ -1,12 +1,14 @@
 let emitter;
 let emitters = [];
 let gravity = 0;
-let particles;
+let rotationSpeed;
 
 function setup() {
   setCanvasContainer('mySketchGoesHere', 3, 2, true);
+  colorMode(HSL, 360, 100, 100);
 
-  emitter = new Emitter();
+  emitter = new Emitter(width / 2, 20);
+
   gravity = createVector(0, 0.1);
 
   background(255);
@@ -14,11 +16,14 @@ function setup() {
 
 function draw() {
   emitter.addParticle();
-  background(255);
   for (let i = 0; i < emitters.length; i++) {
     emitters[i].addParticle();
   }
+  for (let i = 0; i < emitters.length; i++) {
+    emitters.splice(i, 1);
+  }
 
+  background(255);
   emitter.update(gravity);
   emitter.display();
   for (let i = 0; i < emitters.length; i++) {
@@ -26,17 +31,4 @@ function draw() {
     emitters[i].display();
   }
   console.log(emitter.particles.length);
-}
-
-function mousePressed() {
-  const newEmitter = new Emitter(mouseX, mouseY);
-  newEmitter.emitParticles = true;
-
-  for (let i = 0; i < 360; i += 3) {
-    newEmitter.addParticle(i);
-  }
-  while (newEmitter.particles.length < 60) {
-    newEmitter.addParticle(random(360));
-  }
-  emitters.push(newEmitter);
 }

@@ -14,11 +14,11 @@ function setup() {
 
 function draw() {
   emitter.addParticle();
-  background(255);
   for (let i = 0; i < emitters.length; i++) {
     emitters[i].addParticle();
   }
 
+  background(255);
   emitter.update(gravity);
   emitter.display();
   for (let i = 0; i < emitters.length; i++) {
