@@ -18,7 +18,7 @@ class Traffic {
   }
 
   addVehicle(x, y) {
-    const mass = floor(random(1, 3)); // 질량을 무작위로 설정합니다.
+    const mass = floor(random(1, 3)); // 질량을 무작위로 설정
     this.vehicles.push(
       new Vehicle(x, y, mass, mass * 12, 5, 0.1, color(random(360))) // 새롭게 생성하여 배열에 추가
     );
