@@ -12,7 +12,6 @@ const {
   Bodies,
 } = Matter;
 //------------------------------------------------------------
-// Common.setDecomp(decomp);
 
 // 엔진 생성
 var engine = Engine.create(),
@@ -39,8 +38,8 @@ var arrow;
 var vertices;
 
 function setup() {
-  setCanvasContainer('canvas', oWidth, oHeight, true);
-  // arrow = Vertices.fromPath('10 0 10 10 50 20 25 40 40 80 40 50 0 50');
+  setCanvasContainer('canvas', 1, 1, true);
+  arrow = Vertices.fromPath('40 0 40 20 100 20 100 80 40 80 40 100 0 50');
   rectMode(CENTER);
 
   // 바디 만들기
@@ -103,17 +102,15 @@ function setup() {
   group = Body.nextGroup(true);
   //------------------------------------------------------------
   //C
-  ropeC = Composites.stack(600, 50, 7, 1, 10, 10, function (x, y) {
-    vertices = Vertices.fromPath('20 0 20 10 50 10 50 40 20 40 20 50 0 20');
-    // const convexPolygons = decomp.quickDecomp(Vertices.toPath(vertices));
-
+  ropeC = Composites.stack(600, 50, 10, 1, 10, 10, function (x, y) {
+    vertices = Vertices.fromPath('0 0 50 0 50 20 0 20');
     return Bodies.fromVertices(x - 20, y, vertices, {
       collisionFilter: { group: group },
       chamfer: 5,
     });
   });
 
-  Composites.chain(ropeC, 0.5, 1, -0.3, 0, { stiffness: 0, length: 0 });
+  Composites.chain(ropeC, 0.5, 1, -0.3, 0, { stiffness: 1, length: 0 });
   Composite.add(
     ropeC,
     Constraint.create({

@@ -32,9 +32,14 @@ var ropeC;
 var mouse;
 var mouseConstraint;
 var pathA;
+var vertices;
+var arrow;
+var vertices;
 
 function setup() {
   setCanvasContainer('canvas', oWidth, oHeight, true);
+  arrow = Vertices.fromPath('40 0 40 20 100 20 100 80 40 80 40 100 0 50');
+  rectMode(CENTER);
 
   // 바디 만들기
   // 변수 할당은 여기서
@@ -96,7 +101,8 @@ function setup() {
   //------------------------------------------------------------
   //C
   ropeC = Composites.stack(600, 50, 13, 1, 10, 10, function (x, y) {
-    return Bodies.rectangle(x - 20, y, 50, 20, {
+    vertices = Vertices.fromPath('0 0 50 0 50 20 0 20');
+    return Bodies.fromVertices(x - 20, y, vertices, {
       collisionFilter: { group: group },
       chamfer: 5,
     });
@@ -179,6 +185,7 @@ function draw() {
   //------------------------------------------------------------
   // ropeC 그리기
   fill('black');
+
   for (let i = 0; i < ropeC.bodies.length; i++) {
     let body = ropeC.bodies[i];
     let vertices = body.vertices;
