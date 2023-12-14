@@ -1,4 +1,4 @@
-//꽃 배열 & 픽셀 마우스 & 호버 색상 변경 & 랜덤 색상
+//꽃 배열 & 픽셀 손전등 & 호버 색상 변경 & 랜덤 색상
 
 let x, y;
 const rad = 50;
@@ -58,11 +58,6 @@ function draw() {
       }
     }
   }
-  // 캔버스 위쪽에 텍스트 추가
-  fill(255);
-  textSize(50);
-  textAlign(CENTER, TOP);
-  text('', width / 2, 10);
 }
 
 function displayFlowers() {
@@ -90,8 +85,8 @@ function displayFlowers() {
         // 클릭되었거나 호버 중인 꽃은 저장된 색상으로 설정
         fill(flowerColors[currentIndex]);
       } else {
-        noFill(); // 채우기 없음
-        stroke(0); // 테두리 색을 검정색으로 설정
+        noFill();
+        stroke(0);
       }
 
       // 꽃잎
