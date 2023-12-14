@@ -137,7 +137,7 @@ function mouseClicked() {
       const flowerX = i * flowerSpacing + flowerSpacing / 2;
       const flowerY = j * flowerSpacing + flowerSpacing / 2;
 
-      // 클릭된 꽃을 확인
+      // 클릭된 꽃 확인
       if (
         mouseX > flowerX - flowerSize / 2 &&
         mouseX < flowerX + flowerSize / 2 &&
