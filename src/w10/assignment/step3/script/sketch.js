@@ -1,8 +1,8 @@
 const wrongColors = ['#4B7CCC', '#77F2FF', '#858D99', '#FF8658', '#CC5948'];
 const rightColor = '#2D5930';
 const tiles = [];
-const rowNum = 8,
-  colNum = 8;
+const rowNum = 10,
+  colNum = 10;
 let hoveredTile = null;
 const rightTileIdx = [];
 
@@ -30,9 +30,6 @@ function setup() {
 
 function draw() {
   background('black');
-  stroke('#FFFF00'); // Yellow color
-  noFill();
-  ellipse(mouseX, mouseY, 90, 90);
 
   chkHover();
 

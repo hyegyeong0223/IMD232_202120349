@@ -1,5 +1,5 @@
-const wrongColors = ['#4B7CCC', '#77F2FF', '#858D99', '#FF8658', '#CC5948'];
-const rightColor = '#2D5930';
+const wrongColors = ['#EA91FF', '#FF93DA', '#E815576', '#FF8A89', '#A7E7F6'];
+const rightColor = '#04BF8A';
 const tiles = [];
 const rowNum = 8,
   colNum = 8;
@@ -30,10 +30,6 @@ function setup() {
 
 function draw() {
   background('black');
-  stroke('#FFFF00'); // Yellow color
-  noFill();
-  ellipse(mouseX, mouseY, 90, 90);
-
   chkHover();
 
   tiles.forEach((eachTile) => {
@@ -58,7 +54,8 @@ function chkHover() {
 function mousePressed() {
   if (!hoveredTile) return;
   if (hoveredTile.isRight) {
-    // 맞는거 클릭하면 보내버리는 링크
+    // 맞는 타일을 클릭하면 새로운 페이지로 이동
+    window.location.href = './script/luck.js';
     console.log('A');
   }
 }

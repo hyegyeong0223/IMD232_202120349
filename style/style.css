@@ -9,7 +9,7 @@ body {
   line-height: 2rem;
   overflow: hidden;
   margin: 0;
-  font-family: "Spoqa Han Sans Neo", sans-serif;
+  font-family: 'Spoqa Han Sans Neo', sans-serif;
   font-weight: 400;
   color: oklch(90% 0 0/1);
   word-break: keep-all;
@@ -30,6 +30,8 @@ body {
 }
 
 h1 {
+  margin: 0;
+  text-align: center;
   font-size: 5.125rem;
   line-height: 6.25rem;
   margin-block: 0.5em;
@@ -38,6 +40,7 @@ h1 {
   word-break: keep-all;
   overflow-wrap: break-word;
 }
+
 @media (width < 60rem) {
   h1 {
     font-size: 2.25rem;
@@ -46,9 +49,11 @@ h1 {
 }
 
 h2 {
-  font-size: 4.0625rem;
-  line-height: 5.125rem;
-  margin-block: 0.5em;
+  margin: 0;
+  text-align: center;
+  font-size: 5.125rem;
+  line-height: 6.25rem;
+  margin-block: 0em;
   font-weight: 700;
   text-wrap: balance;
   word-break: keep-all;
@@ -59,6 +64,9 @@ h2 {
     font-size: 2rem;
     line-height: 2.75rem;
   }
+}
+h2 .green-text {
+  color: #00cc7e; /* GREEN의 색상을 #00CC7E로 수정 */
 }
 
 h3 {
@@ -223,7 +231,7 @@ canvas {
   grid-template-columns: repeat(1, max-content) minmax(15.5ch, 1fr);
   row-gap: 0.5em;
   -moz-column-gap: 1.5em;
-       column-gap: 1.5em;
+  column-gap: 1.5em;
 }
 .table--col-3,
 .grid--col-3 {

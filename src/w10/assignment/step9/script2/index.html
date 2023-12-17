@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <style>
+      body {
+        background-color: black;
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 75vh;
+        margin: 0;
+      }
+
+      .viewport {
+        text-align: center;
+      }
+    </style>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>네잎클로버 찾기</title>
+    <link
+      href="//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css"
+      rel="stylesheet"
+      type="text/css" />
+    <link rel="stylesheet" href="../../../../style/style.css" />
+
+    <link rel="stylesheet" href="../../../../plugin/prism/prism.css" />
+    <script src="../../../../plugin/prism/prism.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.7.0/lib/p5.min.js"></script>
+    <script src="../../../../script/p5Util.js" defer></script>
+    <!-- <script src="./script2/Luck.js" defer></script>
+    <script src="./script/sketch.js" defer></script>
+    <script src="./script/Tile.js" defer></script> -->
+  </head>
+  <body>
+    <header></header>
+    <div class="viewport">
+      <main>
+        <section>
+          <h2 style="font-size: 3.8em; color: #ff008f">YOU FOUND IT!</h2>
+          <canvas
+            id="canvas"
+            width="400"
+            height="600"
+            style="background-color: white"></canvas>
+
+          <script>
+            const canvas = document.getElementById('canvas');
+            const context = canvas.getContext('2d');
+
+            // 캔버스 배경 채우기
+            context.fillStyle = '#D8FFDB';
+            context.fillRect(0, 0, canvas.width, canvas.height);
+
+            // 캔버스에 테두리 그리기
+            context.strokeStyle = 'black';
+            context.strokeRect(10, 10, canvas.width - 20, canvas.height - 20);
+            context.fillStyle = 'black';
+            context.fillRect(10, 10, 15, 15);
+            context.fillRect(375, 10, 15, 15);
+            context.fillRect(10, 575, 15, 15);
+            context.fillRect(375, 575, 15, 15);
+
+            const textArt1 = `●느ㅎ┣己ㄷ ㄱ┃부ㅈ으●┃■┣∧Hㄱ┃ㄱ┃
+┻己　　┳┳....　　 ┗┻┗ 己　┗　● ...... 己。。`;
+
+            const textArt2 = `
+.　 　( oωo )
+　 (⌒＼／⌒)
+　 (＿／＼＿)
+　　 (_人_)
+　　　/
+　＿／`;
+
+            const textArt3 = `
+            축하합니다
+            모두 얻으셨습니다!
+            ∧＿∧
+            ;・\`ω・)
+            　　　つ
+              ／￣￣￣￣￣￣＼
+            ┌─┐┌─┐┌─┐
+            │행││사││건│
+            │운││랑││강│
+            └─┘└─┘└─┘`;
+
+            const textArt4 = `
+            . 　。　　　　•　 　ﾟ
+            　　.　　　.　　　 　　
+            。　　 。　.
+            　.　　 。　 ඞ 。　 . •
+            • .　 。　.
+            　 　　。　　　　　　
+           
+            `;
+
+            context.font = "16px 'Spoqa Han Sans Neo', sans-serif";
+            context.fillStyle = 'black';
+
+            // textArt1 그리기
+            const lines1 = textArt1.split('\n');
+            for (let i = 0; i < lines1.length; i++) {
+              context.fillText(lines1[i], 35, 70 + i * 25);
+            }
+
+            // textArt2 그리기
+            const lines2 = textArt2.split('\n');
+            for (let i = 0; i < lines2.length; i++) {
+              context.fillText(
+                lines2[i],
+                225,
+                65 + (i + lines1.length + 1) * 25
+              );
+            }
+            // textArt3 그리기
+            const lines3 = textArt3.split('\n');
+            for (let i = 0; i < lines3.length; i++) {
+              context.fillText(
+                lines3[i],
+                45,
+                -110 + (i + lines1.length + lines2.length + 2) * 25
+              );
+            }
+            // textArt4 그리기
+            const lines4 = textArt4.split('\n');
+            for (let i = 0; i < lines4.length; i++) {
+              context.fillText(
+                lines4[i],
+                180,
+                -165 +
+                  (i + lines1.length + lines2.length + lines3.length + 3) * 25
+              );
+            }
+          </script>
+
+          <div class="container">
+            <div id="canvas"></div>
+            <ul>
+              <!-- <li><a href="./step8/index.html">하...</a></li> -->
+              <!-- <li><a href="./step8/script2/Luck.js">하...</a></li> -->
+            </ul>
+          </div>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>

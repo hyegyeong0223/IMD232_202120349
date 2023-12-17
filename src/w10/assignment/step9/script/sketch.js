@@ -1,10 +1,22 @@
-const wrongColors = ['#4B7CCC', '#77F2FF', '#858D99', '#FF8658', '#CC5948'];
-const rightColor = '#2D5930';
+const wrongColors = [
+  '##F2526E',
+  '#F17A97',
+  '#F3BCC8',
+  '#F2E307',
+  '#F28705',
+  '#1BB8FA',
+  '#FF293B',
+];
+//진분홍, 중분홍, 연분홍, 노랑, 주황, 파랑, 빨강
+
+const rightColor = '#00CC7E';
 const tiles = [];
 const rowNum = 8,
   colNum = 8;
 let hoveredTile = null;
 const rightTileIdx = [];
+const numSets = 8; // 동그라미 세트의 수
+const gap = 10; // 동그라미 세트 간의 간격
 
 function setup() {
   setCanvasContainer('canvas', 1, 1, true);
@@ -30,9 +42,6 @@ function setup() {
 
 function draw() {
   background('black');
-  stroke('#FFFF00'); // Yellow color
-  noFill();
-  ellipse(mouseX, mouseY, 90, 90);
 
   chkHover();
 
@@ -58,7 +67,7 @@ function chkHover() {
 function mousePressed() {
   if (!hoveredTile) return;
   if (hoveredTile.isRight) {
-    // 맞는거 클릭하면 보내버리는 링크
+    window.location.href = './script2/index.html';
     console.log('A');
   }
 }
